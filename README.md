@@ -242,3 +242,21 @@ Project Status: Development
 ---
 
 Made with creativity, storytelling, and a little cinematic imagination. 🎬
+
+**##📸 Project Screenshots**
+
+**PLOT TWIST – Home Screen**
+
+![PLOT TWIST Home Screen](scrnshts/Screenshot%202026-11-06%20130113.png)
+
+**PLOT TWIST – Episode Experience**
+
+![PLOT TWIST Episode Experience](scrnshts/Screenshot%202026-11-06%20130235.png)
+
+**PLOT TWIST – Storytelling Interface**
+
+![PLOT TWIST Storytelling Interface](scrnshts/Screenshot%202026-11-06%20130322.png)
+
+**PLOT TWIST – Cinematic Experience**
+
+![PLOT TWIST Cinematic Experience](scrnshts/Screenshot%202026-11-06%20130425.png)
