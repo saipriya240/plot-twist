@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bebas+Neue&family=Space+Grotesk:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 3.5%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 357 96% 46%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 355 77% 36%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 357 96% 46%;
+    --radius: 0.5rem;
+    --chart-1: 357 96% 46%;
+    --chart-2: 355 77% 36%;
+    --chart-3: 0 0% 63%;
+    --chart-4: 38 80% 55%;
+    --chart-5: 210 40% 45%;
+
+    /* Typography system — editorial serif, technical sans, cinematic display */
+    --font-display: 'Bodoni Moda', 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --font-body: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --font-cinema: 'Bebas Neue', 'Space Grotesk', system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 357 96% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 11%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 357 96% 46%;
+  }
+
+  .dark {
+    --background: 0 0% 3.5%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 357 96% 46%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 355 77% 36%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 357 96% 46%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    letter-spacing: -0.005em;
+    font-feature-settings: 'ss01' 1;
+  }
+
+  ::selection {
+    background: #e50914;
+    color: #fff;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   PLOT TWIST type system
+   Editorial serif (Bodoni Moda) · technical sans (Space Grotesk) · film plate (Bebas Neue)
+   --------------------------------------------------------------------------- */
+@layer components {
+  /* Signature wordmark */
+  .t-wordmark {
+    font-family: var(--font-display);
+    line-height: 0.78;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+  }
+
+  /* Headlines */
+  .t-hero {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2.5rem, 9.5vw, 4.75rem);
+    line-height: 0.94;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  .t-season {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2.1rem, 8vw, 3.75rem);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  .t-episode {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.65rem, 6vw, 2.75rem);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  .t-card {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.05rem, 4.2vw, 1.35rem);
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    overflow-wrap: break-word;
+  }
+
+  .t-stat {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.6rem, 5.5vw, 2.15rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variant-numeric: lining-nums;
+  }
+
+  .t-section {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  /* Editorial voice — pull quotes, narration, loglines */
+  .t-lead {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.02rem, 3.6vw, 1.28rem);
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+  }
+
+  .t-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    line-height: 1.7;
+  }
+
+  /* Interface text */
+  .t-body {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.72;
+    font-weight: 400;
+  }
+
+  .t-meta {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .t-kicker {
+    font-family: var(--font-heading);
+    font-size: 0.6rem;
+    line-height: 1.4;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Cinema plates — EPISODE 01, SEASON 02, PREVIOUSLY ON */
+  .t-cinema {
+    font-family: var(--font-cinema);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    line-height: 1;
+  }
+
+  /* Titles sitting over photography */
+  .t-over-image {
+    text-shadow: 0 2px 28px rgba(0, 0, 0, 0.6);
+  }
+
+  .t-rule {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .safe-bottom {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 5.5rem);
+  }
+  .tap {
+    @apply transition duration-200 active:scale-[0.97];
+  }
+}

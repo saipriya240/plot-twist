@@ -1,0 +1,152 @@
+{
+  "name": "Memory",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "memory_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "memory_time": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "mood": {
+      "type": "string",
+      "enum": [
+        "Joyful",
+        "Reflective",
+        "Adventurous",
+        "Calm",
+        "Bittersweet",
+        "Intense",
+        "Playful"
+      ],
+      "enumColors": [
+        "green",
+        "blue",
+        "purple",
+        "gray",
+        "pink",
+        "red",
+        "yellow"
+      ]
+    },
+    "people": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "image",
+              "video"
+            ]
+          },
+          "caption": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "audio_url": {
+      "type": "string"
+    },
+    "audio_transcript": {
+      "type": "string"
+    },
+    "season_id": {
+      "type": "string"
+    },
+    "episode_id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "write",
+        "photos",
+        "video",
+        "voice",
+        "quick"
+      ],
+      "enumColors": [
+        "gray",
+        "blue",
+        "purple",
+        "yellow",
+        "green"
+      ]
+    },
+    "reflection": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the user in the app",
+      "enum": [
+        "admin",
+        "user"
+      ]
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "date_of_birth": {
+      "type": "string"
+    },
+    "preferred_genre": {
+      "type": "string"
+    },
+    "memory_focus": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "storytelling_style": {
+      "type": "string"
+    },
+    "series_title": {
+      "type": "string"
+    },
+    "season_tagline": {
+      "type": "string"
+    },
+    "avatar_url": {
+      "type": "string"
+    },
+    "onboarded": {
+      "type": "boolean"
+    },
+    "notify_weekly": {
+      "type": "boolean"
+    },
+    "notify_finale": {
+      "type": "boolean"
+    },
+    "private_series": {
+      "type": "boolean"
+    },
+    "latest_recap": {
+      "type": "string"
+    },
+    "recap_date": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "role"
+  ]
+}

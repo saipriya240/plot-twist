@@ -1,0 +1,132 @@
+{
+  "name": "Episode",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "episode_number": {
+      "type": "number"
+    },
+    "synopsis": {
+      "type": "string"
+    },
+    "full_story": {
+      "type": "string"
+    },
+    "genre": {
+      "type": "string",
+      "enum": [
+        "Romance",
+        "Comedy",
+        "Drama",
+        "Adventure",
+        "Coming of Age",
+        "Mystery",
+        "Slice of Life",
+        "A little bit of everything"
+      ],
+      "enumColors": [
+        "pink",
+        "yellow",
+        "red",
+        "green",
+        "blue",
+        "purple",
+        "gray",
+        "blue"
+      ]
+    },
+    "cover_image": {
+      "type": "string"
+    },
+    "season_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft",
+      "enumColors": [
+        "gray",
+        "green"
+      ]
+    },
+    "memory_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "character_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "people_mentioned": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "runtime_minutes": {
+      "type": "number"
+    },
+    "release_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "favourite": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

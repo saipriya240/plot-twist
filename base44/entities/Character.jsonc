@@ -1,0 +1,88 @@
+{
+  "name": "Character",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "avatar": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Main Character",
+        "Best Friend",
+        "Family",
+        "Special Guest",
+        "Supporting Cast",
+        "Recurring Character"
+      ],
+      "enumColors": [
+        "red",
+        "green",
+        "blue",
+        "yellow",
+        "gray",
+        "purple"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "first_appearance": {
+      "type": "string",
+      "format": "date"
+    },
+    "episode_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

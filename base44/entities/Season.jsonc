@@ -1,0 +1,86 @@
+{
+  "name": "Season",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Season title, e.g. The Beginning"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short season logline"
+    },
+    "cover_image": {
+      "type": "string",
+      "description": "Cover image URL (uploaded file uri or external URL)"
+    },
+    "season_number": {
+      "type": "number",
+      "description": "1-based season number"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "archived"
+      ],
+      "default": "active",
+      "enumColors": [
+        "green",
+        "gray"
+      ]
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
